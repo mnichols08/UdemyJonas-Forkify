@@ -40,7 +40,7 @@ const controlSearch = async () => {
             clearLoader();
             searchView.renderResults(state.search.result);
         } catch (err) {
-            alert('Something went wrong with the search...');
+            alert('Something went wrong with the search...This app is limited to 50 API calls so that is probably the reason for this message.');
             clearLoader();
         }
     }

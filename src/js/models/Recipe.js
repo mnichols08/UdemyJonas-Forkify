@@ -16,7 +16,7 @@ export default class Recipe {
             this.ingredients = res.data.recipe.ingredients;
         } catch (error) {
             console.log(error);
-            alert('Something went wrong :(');
+            alert('Something went wrong :(. This app is limited to 50 API calls so that is probably the reason for this message.');
         }
     }
 
