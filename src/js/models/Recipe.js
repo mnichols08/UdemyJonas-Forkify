@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { key, proxy } from '../config';
 
 export default class Recipe {
     constructor(id) {
@@ -8,7 +7,9 @@ export default class Recipe {
 
     async getRecipe() {
         try {
-            const res = await axios(`https://forkify-api.herokuapp.com/api/get?rId=${this.id}`);
+            const res = await axios(`https://forkify-api.herokuapp.com/api/get?rId=${this.id}`).catch(e => {
+                return {}
+            })
             this.title = res.data.recipe.title;
             this.author = res.data.recipe.publisher;
             this.img = res.data.recipe.image_url;
@@ -16,7 +17,7 @@ export default class Recipe {
             this.ingredients = res.data.recipe.ingredients;
         } catch (error) {
             console.log(error);
-            alert('Something went wrong :(. Blame Jonas if this doesnt work anymore');
+            alert('Something went wrong.');
         }
     }
 
